@@ -36,11 +36,7 @@
       color: var(--text);
     }
 
-    /* ── HEADER ── */
-    header {
-      text-align: center;
-      margin-bottom: 36px;
-    }
+    header { text-align: center; margin-bottom: 24px; }
 
     .date-badge {
       display: inline-block;
@@ -65,12 +61,61 @@
       background-clip: text;
     }
 
+    /* ── DATE SELECTOR ── */
+    .date-selector {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .date-selector label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .date-btn {
+      padding: 8px 18px;
+      border: 2px solid var(--border);
+      border-radius: 99px;
+      background: white;
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .date-btn:hover { border-color: #fbbf24; background: #fef9c3; }
+    .date-btn.active {
+      background: linear-gradient(135deg, #fde68a, #fbbf24);
+      border-color: #fbbf24;
+      color: #78350f;
+      box-shadow: 0 2px 8px rgba(251,191,36,0.3);
+    }
+
+    .history-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      background: #f3f4f6;
+      border-radius: 99px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #6b7280;
+      margin-right: 4px;
+    }
+
     /* ── TOGGLE BUTTONS ── */
     .toggles {
       display: flex;
       gap: 12px;
       justify-content: center;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       flex-wrap: wrap;
     }
 
@@ -88,157 +133,62 @@
       transition: all 0.25s ease;
     }
 
-    .toggle-btn.hadas {
-      background: var(--hadas-light);
-      color: #9d174d;
-      border-color: var(--hadas-mid);
-    }
+    .toggle-btn.hadas { background: var(--hadas-light); color: #9d174d; border-color: var(--hadas-mid); }
     .toggle-btn.hadas:hover { background: var(--hadas-mid); }
-    .toggle-btn.hadas.off {
-      background: #f3f4f6;
-      color: #9ca3af;
-      border-color: #e5e7eb;
-    }
-
-    .toggle-btn.yaara {
-      background: var(--yaara-light);
-      color: #065f46;
-      border-color: var(--yaara-mid);
-    }
+    .toggle-btn.hadas.off { background: #f3f4f6; color: #9ca3af; border-color: #e5e7eb; }
+    .toggle-btn.yaara { background: var(--yaara-light); color: #065f46; border-color: var(--yaara-mid); }
     .toggle-btn.yaara:hover { background: var(--yaara-mid); }
-    .toggle-btn.yaara.off {
-      background: #f3f4f6;
-      color: #9ca3af;
-      border-color: #e5e7eb;
-    }
+    .toggle-btn.yaara.off { background: #f3f4f6; color: #9ca3af; border-color: #e5e7eb; }
 
-    .toggle-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background 0.25s;
-    }
+    .toggle-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; transition: background 0.25s; }
     .toggle-btn.hadas .toggle-dot { background: var(--hadas-hue); }
     .toggle-btn.yaara .toggle-dot { background: var(--yaara-hue); }
     .toggle-btn.off .toggle-dot { background: #d1d5db; }
 
-    /* ── TABLE WRAPPER ── */
+    /* ── TABLE ── */
     .table-wrap {
       width: 100%;
-      max-width: 860px;
+      max-width: 900px;
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
       border: 1.5px solid var(--border);
+      transition: opacity 0.3s;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+    table { width: 100%; border-collapse: collapse; }
 
-    /* ── COLUMN HEADERS ── */
-    thead th {
-      padding: 18px 24px;
-      font-size: 1.1rem;
-      font-weight: 900;
-      letter-spacing: 0.02em;
-    }
+    thead th { padding: 18px 24px; font-size: 1.1rem; font-weight: 900; letter-spacing: 0.02em; }
+    .th-time { background: var(--time-col); color: var(--muted); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; width: 110px; text-align: center; border-left: 1.5px solid var(--border); }
+    .th-hadas { background: linear-gradient(135deg, #fce7f3, #fdf2f8); color: #be185d; border-left: 1.5px solid var(--border); }
+    .th-yaara { background: linear-gradient(135deg, #d1fae5, #ecfdf5); color: #065f46; }
 
-    .th-time {
-      background: var(--time-col);
-      color: var(--muted);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      width: 120px;
-      text-align: center;
-      border-left: 1.5px solid var(--border);
-    }
-
-    .th-hadas {
-      background: linear-gradient(135deg, #fce7f3, #fdf2f8);
-      color: #be185d;
-      border-left: 1.5px solid var(--border);
-    }
-
-    .th-yaara {
-      background: linear-gradient(135deg, #d1fae5, #ecfdf5);
-      color: #065f46;
-    }
-
-    /* ── ROWS ── */
-    tbody tr {
-      border-top: 1.5px solid var(--border);
-      transition: background 0.2s;
-    }
-
+    tbody tr { border-top: 1.5px solid var(--border); transition: background 0.2s; }
     tbody tr:hover { background: rgba(0,0,0,0.015); }
 
-    td {
-      padding: 20px 24px;
-      vertical-align: top;
-    }
-
-    .td-time {
-      text-align: center;
-      background: var(--time-col);
-      border-left: 1.5px solid var(--border);
-    }
+    td { padding: 18px 22px; vertical-align: top; }
+    .td-time { text-align: center; background: var(--time-col); border-left: 1.5px solid var(--border); }
+    .td-hadas { background: #fff; border-left: 1.5px solid var(--border); }
+    .td-yaara { background: #fff; }
 
     .time-label {
       display: inline-block;
       background: #fff;
       border: 1.5px solid var(--border);
       border-radius: 10px;
-      padding: 8px 12px;
-      font-size: 0.9rem;
+      padding: 8px 10px;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--text);
       line-height: 1.3;
       white-space: nowrap;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
+    .time-label span { display: block; font-size: 0.7rem; color: var(--muted); font-weight: 600; }
 
-    .time-label span {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .td-hadas {
-      background: #fff;
-      border-left: 1.5px solid var(--border);
-    }
-
-    .td-yaara {
-      background: #fff;
-    }
-
-    /* ── CELL CONTENT ── */
-    .cell-empty {
-      color: #d1d5db;
-      font-size: 1.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 60px;
-    }
-
-    .lesson-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .lesson-sub {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
+    .lesson-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .lesson-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
 
     .link-chip {
       display: inline-flex;
@@ -246,73 +196,47 @@
       gap: 6px;
       padding: 5px 12px;
       border-radius: 8px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       text-decoration: none;
       transition: opacity 0.2s;
       direction: ltr;
+      margin-top: 2px;
+      margin-left: 4px;
     }
-    .link-chip:hover { opacity: 0.75; }
-    .link-chip svg { flex-shrink: 0; }
+    .link-chip:hover { opacity: 0.72; }
 
-    .chip-zoom {
-      background: #e0f2fe;
-      color: #0369a1;
-    }
-    .chip-google {
-      background: #fef9c3;
-      color: #854d0e;
-    }
+    .chip-zoom { background: #e0f2fe; color: #0369a1; }
+    .chip-google { background: #fef9c3; color: #854d0e; }
+    .chip-task { background: #ede9fe; color: #5b21b6; }
 
-    .note-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      margin-top: 8px;
-      padding: 4px 10px;
-      border-radius: 7px;
-      background: #fef3c7;
-      color: #92400e;
-      font-size: 0.76rem;
-      font-weight: 600;
-    }
+    /* hide columns */
+    body.hide-hadas .col-hadas, body.hide-hadas .th-hadas { display: none; }
+    body.hide-yaara .col-yaara, body.hide-yaara .th-yaara { display: none; }
 
-    /* ── HIDE columns ── */
-    .col-hadas, .th-hadas { transition: all 0.3s ease; }
-    .col-yaara, .th-yaara { transition: all 0.3s ease; }
+    .accent-bar { height: 5px; background: linear-gradient(90deg, var(--hadas-hue), #f9a8d4, var(--yaara-mid), var(--yaara-hue)); }
 
-    body.hide-hadas .col-hadas,
-    body.hide-hadas .th-hadas {
-      display: none;
-    }
+    footer { margin-top: 32px; font-size: 0.8rem; color: #a8a29e; text-align: center; }
 
-    body.hide-yaara .col-yaara,
-    body.hide-yaara .th-yaara {
-      display: none;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      margin-top: 32px;
-      font-size: 0.8rem;
-      color: #a8a29e;
-      text-align: center;
-    }
-
-    /* ── DECORATIVE ── */
-    .accent-bar {
-      height: 5px;
-      background: linear-gradient(90deg, var(--hadas-hue), #f9a8d4, var(--yaara-mid), var(--yaara-hue));
-    }
+    .schedule-day { display: none; }
+    .schedule-day.visible { display: table-row-group; }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="date-badge">📅 יום שני · 10 במרץ 2026</div>
+  <div class="date-badge" id="activeDateBadge">📅 שלישי · 11 במרץ 2026</div>
   <h1>מערכת השעות של הבנות</h1>
 </header>
 
+<!-- DATE SELECTOR -->
+<div class="date-selector">
+  <span class="history-badge">🕐 היסטוריה</span>
+  <button class="date-btn" onclick="switchDate('2026-03-10')">שני 10/3</button>
+  <button class="date-btn active" onclick="switchDate('2026-03-11')">שלישי 11/3 ✨</button>
+</div>
+
+<!-- TOGGLES -->
 <div class="toggles">
   <button class="toggle-btn hadas" id="btnHadas" onclick="toggle('hadas')">
     <span class="toggle-dot"></span> הדס
@@ -332,67 +256,138 @@
         <th class="th-yaara col-yaara">🌿 יערה</th>
       </tr>
     </thead>
-    <tbody>
 
-      <!-- 10:00 -->
+    <!-- ══════════════════════════════════
+         TUESDAY 11/3
+    ══════════════════════════════════ -->
+    <tbody class="schedule-day visible" id="day-2026-03-11">
+
       <tr>
-        <td class="td-time">
-          <div class="time-label">10:00<span>עד 10:45</span></div>
-        </td>
+        <td class="td-time"><div class="time-label">8:45<span>עד 9:30</span></div></td>
         <td class="td-hadas col-hadas">
           <div class="lesson-title">☀️ מפגש בוקר</div>
           <div class="lesson-sub">זום עם מיכל</div>
           <a class="link-chip chip-zoom" href="https://edu-il.zoom.us/j/89936360018" target="_blank">
-            <!-- zoom icon -->
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
             zoom.us/j/89936360018
           </a>
         </td>
         <td class="td-yaara col-yaara">
-          <div class="lesson-title">💻 שיעור בזום</div>
-          <div class="lesson-sub">עם עדן</div>
-          <a class="link-chip chip-google" href="https://meet.google.com/ejj-ucou-ckz" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
-            meet.google.com/ejj-ucou-ckz
-          </a>
+          <div style="color:#d1d5db;font-size:1.3rem;padding-top:8px">—</div>
         </td>
       </tr>
 
-      <!-- 12:00 -->
       <tr>
-        <td class="td-time">
-          <div class="time-label">12:00<span>עד 12:45</span></div>
-        </td>
+        <td class="td-time"><div class="time-label">10:00<span>עד 10:45</span></div></td>
         <td class="td-hadas col-hadas">
-          <div class="lesson-title">📖 שפה</div>
+          <div class="lesson-title">📖 רותם</div>
           <div class="lesson-sub">זום עם רותם</div>
           <a class="link-chip chip-zoom" href="https://edu-il.zoom.us/j/9367001510" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
             zoom.us/j/9367001510
           </a>
         </td>
         <td class="td-yaara col-yaara">
-          <div class="lesson-title">💻 שיעור נוסף בזום</div>
-          <div class="lesson-sub">עם עדן</div>
+          <div class="lesson-title">💻 שיעור עם עדן</div>
+          <div class="lesson-sub">זום עם עדן</div>
           <a class="link-chip chip-google" href="https://meet.google.com/ejj-ucou-ckz" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
             meet.google.com/ejj-ucou-ckz
           </a>
         </td>
       </tr>
 
-      <!-- משימות -->
       <tr>
-        <td class="td-time">
-          <div class="time-label">📩<span>משימות</span></div>
-        </td>
+        <td class="td-time"><div class="time-label">12:00<span>עד 12:45</span></div></td>
         <td class="td-hadas col-hadas">
-          <div class="lesson-title">📐 חשבון</div>
-          <div class="lesson-sub">תישלח באופק במהלך היום</div>
+          <div class="lesson-title">📝 מיכל</div>
+          <div class="lesson-sub">זום עם מיכל</div>
+          <a class="link-chip chip-zoom" href="https://edu-il.zoom.us/j/89936360018" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            zoom.us/j/89936360018
+          </a>
+        </td>
+        <td class="td-yaara col-yaara">
+          <div class="lesson-title">🌍 רואים עולם</div>
+          <div class="lesson-sub">עם מור זנזורי</div>
+          <a class="link-chip chip-google" href="https://meet.google.com/ggo-xpap-mzv" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            meet.google.com/ggo-xpap-mzv
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-time"><div class="time-label">📩<span>משימות</span></div></td>
+        <td class="td-hadas col-hadas">
+          <div style="color:#d1d5db;font-size:0.85rem">—</div>
         </td>
         <td class="td-yaara col-yaara">
           <div class="lesson-title">📝 2 משימות מקוונות</div>
           <div class="lesson-sub">יישלחו במהלך היום</div>
+          <a class="link-chip chip-task" href="https://lo.cet.ac.il/player/?task=7f297bc1-647b-4495-8a97-45c0a47345a4" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            משימה של טלי
+          </a>
+        </td>
+      </tr>
+
+    </tbody>
+
+    <!-- ══════════════════════════════════
+         MONDAY 10/3  (history)
+    ══════════════════════════════════ -->
+    <tbody class="schedule-day" id="day-2026-03-10">
+
+      <tr>
+        <td class="td-time"><div class="time-label">10:00<span>עד 10:45</span></div></td>
+        <td class="td-hadas col-hadas">
+          <div class="lesson-title">☀️ מפגש בוקר</div>
+          <div class="lesson-sub">זום עם מיכל</div>
+          <a class="link-chip chip-zoom" href="https://edu-il.zoom.us/j/89936360018" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            zoom.us/j/89936360018
+          </a>
+        </td>
+        <td class="td-yaara col-yaara">
+          <div class="lesson-title">💻 שיעור עם עדן</div>
+          <div class="lesson-sub">זום עם עדן</div>
+          <a class="link-chip chip-google" href="https://meet.google.com/ejj-ucou-ckz" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            meet.google.com/ejj-ucou-ckz
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-time"><div class="time-label">12:00<span>עד 12:45</span></div></td>
+        <td class="td-hadas col-hadas">
+          <div class="lesson-title">📖 שפה</div>
+          <div class="lesson-sub">זום עם רותם</div>
+          <a class="link-chip chip-zoom" href="https://edu-il.zoom.us/j/9367001510" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            zoom.us/j/9367001510
+          </a>
+        </td>
+        <td class="td-yaara col-yaara">
+          <div class="lesson-title">💻 שיעור נוסף</div>
+          <div class="lesson-sub">זום עם עדן</div>
+          <a class="link-chip chip-google" href="https://meet.google.com/ejj-ucou-ckz" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            meet.google.com/ejj-ucou-ckz
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-time"><div class="time-label">📩<span>משימות</span></div></td>
+        <td class="td-hadas col-hadas">
+          <div class="lesson-title">📐 חשבון</div>
+          <div class="lesson-sub">נשלחה באופק</div>
+        </td>
+        <td class="td-yaara col-yaara">
+          <div class="lesson-title">📝 2 משימות מקוונות</div>
+          <div class="lesson-sub">נשלחו במהלך היום</div>
         </td>
       </tr>
 
@@ -404,6 +399,21 @@
 
 <script>
   const state = { hadas: true, yaara: true };
+  let activeDate = '2026-03-11';
+
+  const dateLabels = {
+    '2026-03-10': '📅 שני · 10 במרץ 2026',
+    '2026-03-11': '📅 שלישי · 11 במרץ 2026'
+  };
+
+  function switchDate(date) {
+    document.querySelectorAll('.schedule-day').forEach(el => el.classList.remove('visible'));
+    document.getElementById('day-' + date).classList.add('visible');
+    document.querySelectorAll('.date-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('activeDateBadge').textContent = dateLabels[date];
+    activeDate = date;
+  }
 
   function toggle(who) {
     state[who] = !state[who];
