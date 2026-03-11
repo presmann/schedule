@@ -225,7 +225,7 @@
 <body>
 
 <header>
-  <div class="date-badge" id="activeDateBadge">📅 שלישי · 11 במרץ 2026</div>
+  <div class="date-badge" id="activeDateBadge">📅 רביעי · 12 במרץ 2026</div>
   <h1>מערכת השעות של הבנות</h1>
 </header>
 
@@ -233,7 +233,8 @@
 <div class="date-selector">
   <span class="history-badge">🕐 היסטוריה</span>
   <button class="date-btn" onclick="switchDate('2026-03-10')">שני 10/3</button>
-  <button class="date-btn active" onclick="switchDate('2026-03-11')">שלישי 11/3 ✨</button>
+  <button class="date-btn" onclick="switchDate('2026-03-11')">שלישי 11/3</button>
+  <button class="date-btn active" onclick="switchDate('2026-03-12')">רביעי 12/3 ✨</button>
 </div>
 
 <!-- TOGGLES -->
@@ -258,9 +259,62 @@
     </thead>
 
     <!-- ══════════════════════════════════
+         WEDNESDAY 12/3
+    ══════════════════════════════════ -->
+    <tbody class="schedule-day visible" id="day-2026-03-12">
+
+      <tr>
+        <td class="td-time"><div class="time-label">10:00<span>עד 10:45</span></div></td>
+        <td class="td-hadas col-hadas">
+          <div style="color:#d1d5db;font-size:0.85rem">—</div>
+        </td>
+        <td class="td-yaara col-yaara">
+          <div class="lesson-title">📖 שיעור עם טלי</div>
+          <div class="lesson-sub">זום עם טלי</div>
+          <a class="link-chip chip-google" href="https://meet.google.com/bxp-dcev-hez" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            meet.google.com/bxp-dcev-hez
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-time"><div class="time-label">12:00<span>עד 12:45</span></div></td>
+        <td class="td-hadas col-hadas">
+          <div class="lesson-title">💬 זום עם מיכל</div>
+          <div class="lesson-sub">הקישור הקבוע</div>
+          <a class="link-chip chip-zoom" href="https://edu-il.zoom.us/j/89936360018" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            zoom.us/j/89936360018
+          </a>
+        </td>
+        <td class="td-yaara col-yaara">
+          <div class="lesson-title">💻 שיעור עם עדן</div>
+          <div class="lesson-sub">זום עם עדן</div>
+          <a class="link-chip chip-google" href="https://meet.google.com/ejj-ucou-ckz" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="10" rx="2"/><polyline points="17 9 22 6 22 18 17 15"/></svg>
+            meet.google.com/ejj-ucou-ckz
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="td-time"><div class="time-label">📩<span>משימות</span></div></td>
+        <td class="td-hadas col-hadas">
+          <div style="color:#d1d5db;font-size:0.85rem">—</div>
+        </td>
+        <td class="td-yaara col-yaara">
+          <div class="lesson-title">📝 2 משימות מקוונות</div>
+          <div class="lesson-sub">יישלחו במהלך היום</div>
+        </td>
+      </tr>
+
+    </tbody>
+
+    <!-- ══════════════════════════════════
          TUESDAY 11/3
     ══════════════════════════════════ -->
-    <tbody class="schedule-day visible" id="day-2026-03-11">
+    <tbody class="schedule-day" id="day-2026-03-11">
 
       <tr>
         <td class="td-time"><div class="time-label">8:45<span>עד 9:30</span></div></td>
@@ -427,11 +481,12 @@
 
 <script>
   const state = { hadas: true, yaara: true };
-  let activeDate = '2026-03-11';
+  let activeDate = '2026-03-12';
 
   const dateLabels = {
     '2026-03-10': '📅 שני · 10 במרץ 2026',
-    '2026-03-11': '📅 שלישי · 11 במרץ 2026'
+    '2026-03-11': '📅 שלישי · 11 במרץ 2026',
+    '2026-03-12': '📅 רביעי · 12 במרץ 2026'
   };
 
   function switchDate(date) {
